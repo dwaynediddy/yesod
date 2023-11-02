@@ -1,0 +1,12 @@
+<div>
+    ^{welcomeWidget}
+<div>
+    ^{mainWidget}
+    ^{mainWidget}
+    ^{mainWidget}
+    ^{mainWidget}
+    ^{mainWidget}
+    ^{mainWidget}
+    ^{mainWidget}
+<div>
+    ^{getAuthWidget}
