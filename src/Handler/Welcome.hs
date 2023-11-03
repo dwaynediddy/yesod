@@ -1,37 +1,26 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE QuasiQuotes #-}
 {-# LANGUAGE TemplateHaskell #-}
+{-# LANGUAGE TypeFamilies #-}
 
 module Handler.Welcome where
 
-import Import
+import Yesod
 
-getWelcomeR :: Handler Html
-getWelcomeR = defaultLayout $ do
-  setTitle "Hello & Welcome!"
-  $(widgetFile "welcome")
+data Links = Links
 
-welcomeWidget :: Widget
+mkYesod
+  "Links"
+  [parseRoutes|
+/ WelcomeR GET
+/signup SignUpR GET
+/login LoginR GET
+|]
 
-welcomeWidget =
-  [whamlet|
-    <h2>Welcome to Diddyville!
-    <p>tasking your life to fit right in
-    |]
+instance Yesod Links
 
-mainWidget :: Widget
+getSignUpR = defaultLayout [whamlet|<a href=@{SignUpR}>go to sign up|]
+getLoginR = defaultLayout [whamlet|<a href=@{LoginR}>gpo to login|]
+getWelcomeR = defaultLayout [whamlet|<a href=@{WelcomeR}>go to welcome|]
 
-mainWidget =
-  [whamlet|
-    <p>lorem ipsum dolor sit amet, consectetur adip ex ea commodo sit am
-    |]
-
-getAuthWidget :: Widget
-
-getAuthWidget =
-  [whamlet|
-  -- link buttons to different pages
-    <button>sign up!
-    <p>already a mamber?
-    <button>log in!
-    |]
+main = warp 3000 Links
