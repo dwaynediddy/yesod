@@ -14,14 +14,11 @@ import Control.Monad.Logger (LogSource)
 -- Used only when in "auth-dummy-login" setting is enabled.
 
 import qualified Data.CaseInsensitive as CI
-import Data.Kind (Type)
 import qualified Data.Text.Encoding as TE
-import Database.Persist.Sql (ConnectionPool, runSqlPool)
+import Database.Persist.Sql (ConnectionPool)
 import Import.NoFoundation
 import Text.Hamlet (hamletFile)
 import Text.Jasmine (minifym)
-import Yesod.Auth.Dummy
-import Yesod.Auth.OpenId (IdentifierType (Claimed), authOpenId)
 import Yesod.Core.Types (Logger)
 import qualified Yesod.Core.Unsafe as Unsafe
 import Yesod.Default.Util (addStaticContentExternal)
@@ -87,8 +84,6 @@ instance Yesod App where
   defaultLayout :: Widget -> Handler Html
   defaultLayout widget = do
     master <- getYesod
-    mmsg <- getMessage
-    mcurrentRoute <- getCurrentRoute
 
     pc <- widgetToPageContent $ do
       addStylesheet $ StaticR css_bootstrap_css

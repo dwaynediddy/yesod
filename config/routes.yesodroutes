@@ -5,3 +5,9 @@
 
 -- / HelloR GET
 / WelcomeR GET
+
+/signup SignUpR GET
+
+/login LoginR GET
+
+/home HomeR GET
