@@ -63,6 +63,7 @@ getWelcomeR = defaultLayout $ do
 getHomeR :: Handler Html
 getHomeR = defaultLayout $ do
   setTitle "Home page"
+  $(widgetFile "hello")
   headerWidget
   [whamlet|
       <nav>
