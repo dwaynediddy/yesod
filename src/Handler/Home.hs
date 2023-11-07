@@ -5,6 +5,7 @@
 
 module Handler.Home where
 
+import Handler.CommentsWidget
 import Handler.Welcome
 import Import
 
@@ -36,4 +37,13 @@ getHomeR = defaultLayout $ do
 
         <div btn-container>
             <button class="submit-btn" type="submit">Submit
+-- find out how to map through all commetns
+        <div class="comments-container">
+            <div class="comments">
+                ^{getCommentsOneR}
+                    <p class="comment-time">sent at some time o clock
+            <div class="comments">
+                ^{getCommentsTwoR}
+                    <p class="comment-time">sent at a different oclock
+
   |]
