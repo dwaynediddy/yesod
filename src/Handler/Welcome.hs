@@ -60,29 +60,6 @@ getWelcomeR = defaultLayout $ do
     <div>
 |]
 
-getHomeR :: Handler Html
-getHomeR = defaultLayout $ do
-  setTitle "Home page"
-  $(widgetFile "hello")
-  headerWidget
-  [whamlet|
-      <nav>
-          <ul>
-              <li>
-                  <a href=@{HomeR}>Home
-              <li>
-                  <a href=@{HomeR}>About
-              <li>
-                  <a href=@{HomeR}>Products
-              <li>
-                  <a href=@{HomeR}>Contacts
-      <h2>Welcome to my page
-      <div>
-          <h3>Main Section
-              <p>Look at the cute animals
-              <img src=@{StaticR img_kot_png} alt="cute animal">
-  |]
-
 --  create a reusable widget for my header across all pages
 headerWidget :: Widget
 headerWidget = do

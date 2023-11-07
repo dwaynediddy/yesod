@@ -8,3 +8,36 @@ ul
 
 ul li
     margin-right: 10px
+
+.content-container
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%)
+    max-width: 550px
+
+.output-container
+    padding: 10px
+
+textarea
+    margin: 10px
+
+.btn-container
+    display: flex
+    justify-content: center
+    align-items: center
+
+.submit-btn
+    background-color: blue
+    color: white
+    border-radius: 8px
+    border: none
+    width: 10rem
+    psdding-left: 50px
+
+.submit-btn:hover
+    background-color: red
+    color: black
+    border-radius: 8px
+    width: 10rem
+
