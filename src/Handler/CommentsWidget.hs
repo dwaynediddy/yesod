@@ -7,22 +7,25 @@ module Handler.CommentsWidget where
 
 import Import
 
--- yessss ok so instead of passing Handler Html use
--- to use it somehwere else
+-- difine the ocmmnt data type
+data PostComment = PostComment
+  { commentText :: Text
+  , commentTime :: Text
+  }
 
-getCommentsOneR :: Widget
-getCommentsOneR = do
-  [whamlet|
-        <div class="comment1">
-            <p>monday legs & shoulders, tuesday chest & arms, wednesday rest, 
-                thursday legs, friday back and shoulders saturday rest?
-        
+  --i need to make a list of comments to map through
+commentList :: [PostComment]
+commentList = 
+    [ PostComment "Comment 1" "12:00 PM"
+    , PostComment "Comment 2" "1:30 PM"
+    , PostComment "Comment 3" "3:15 PM"
+    ]
 
-    |]
-
-getCommentsTwoR :: Widget
-getCommentsTwoR = do
-  [whamlet|
-        <div class="comment1">
-            <p>high weight high intensity have until february could do 4 weeks of 3 different variations
+generateCommentWidgets :: [PostComment] -> Handler Widget
+generateCommentWidgets comments = do
+    return [whamlet|
+        $forall comment <- comments
+            <div .comments>
+                <p>#{commentText comment}
+                <p .comment-time>sent at #{commentTime comment}
     |]

@@ -14,6 +14,7 @@ getHomeR = defaultLayout $ do
   setTitle "Home page"
   $(widgetFile "hello")
   Handler.Welcome.headerWidget
+  commentWidgets <- handlerToWidget $ generateCommentWidgets commentList
   [whamlet|
       <nav class="nav-container">
           <ul>
@@ -37,13 +38,8 @@ getHomeR = defaultLayout $ do
 
         <div btn-container>
             <button class="submit-btn" type="submit">Submit
--- find out how to map through all commetns
+
         <div class="comments-container">
             <div class="comments">
-                ^{getCommentsOneR}
-                    <p class="comment-time">sent at some time o clock
-            <div class="comments">
-                ^{getCommentsTwoR}
-                    <p class="comment-time">sent at a different oclock
-
+            ^{commentWidgets}
   |]

@@ -46,6 +46,9 @@ textarea
     padding: 5px
     margin: 5px
 
+.comments p
+    color: pink
+
 .comment-time
     font-size: 8px
 

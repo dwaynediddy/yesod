@@ -60,6 +60,8 @@ getWelcomeR = defaultLayout $ do
     <div>
 |]
 
+
+
 --  create a reusable widget for my header across all pages
 headerWidget :: Widget
 headerWidget = do
