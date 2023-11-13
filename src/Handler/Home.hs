@@ -34,12 +34,11 @@ getHomeR = defaultLayout $ do
 
         <div class="output-container">
             <label>What do you Think of this cute kitten?
-            <textarea name="post" row="5" cols="40">
+            <textarea name="post" row="5" cols="40" maxlength="100" id="commentTextarea">
 
         <div btn-container>
             <button class="submit-btn" type="submit">Submit
 
         <div class="comments-container">
-            <div class="comments">
-            ^{commentWidgets}
+                ^{commentWidgets}
   |]
